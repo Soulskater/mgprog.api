@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', routes);
 app.options('*', cors({
-    origin: 'https://localhost:44302',
+    origin: "http://mgprog-web.azurewebsites.net/", //'http://localhost:44302',
     optionsSuccessStatus: 200
 }));
 
