@@ -13,9 +13,11 @@ var app = require('../app'); //Require our app
 // }, app);
 // httpServer.listen(7443);
 
+var port = process.env.port;
 var httpServer = http.createServer(app);
-httpServer.listen(8080, "127.0.0.1");
-console.log("------------APP STARTED");
+httpServer.listen(port);
+httpServer.listen(80);
+console.log("------------APP STARTED", port);
 
 // var server = app.listen(app.get('port'), function () {
 //     console.log('Express server listening on port ' + server.address().port);
