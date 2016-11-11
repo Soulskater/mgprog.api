@@ -15,7 +15,7 @@ var app = require('../app'); //Require our app
 
 var httpServer = http.createServer(app);
 httpServer.listen(80);
-console.log("------------APP STARTED", port);
+//console.log("------------APP STARTED", port);
 
 // var server = app.listen(app.get('port'), function () {
 //     console.log('Express server listening on port ' + server.address().port);
