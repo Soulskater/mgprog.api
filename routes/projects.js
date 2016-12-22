@@ -1,25 +1,10 @@
-var express = require('express');
-var cradle = require('cradle');
-var dbConnector = require('../connectors/database');
-var uuid = require('uuid');
-const cors = require('cors');
+const projectService = require('../services/projectService');
 
-function _registerRoutes(router) {
-    router.route("/projects").get(cors({
-        origin: 'https://localhost:44302',
-        optionsSuccessStatus: 200
-    }), function (req, res, next) {
-        var connection = dbConnector.getConnection();
-        var db = connection.database('projects');
-
-        db.view('projects/all', function (err, result) {
-            if (err) {
-                res.json({error: err});
-            } else {
-                res.json(result.toArray());
-            }
-        });
+exports.index = function (req, res, next) {
+    var promise = projectService.getProjects();
+    promise.then(function (projects) {
+        res.json(projects);
+    }).catch(function (err) {
+        res.json(err);
     });
-}
-
-module.exports = _registerRoutes;
+};

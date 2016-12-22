@@ -1,5 +1,4 @@
 const uuid = require('uuid');
-const cradle = require('cradle');
 const jwt = require("jsonwebtoken");
 const config = require("../configuration/configuration");
 const cryptoService = require('../services/crypto');
